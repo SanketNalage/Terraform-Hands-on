@@ -6,7 +6,7 @@ provider "aws" {
 
 # Resource Block
 resource "aws_instance" "ec2demo" {
-  ami           = "ami-0c2e61fdcb5495691" # Amazon Linux in us-east-1, update as per your region
+  ami           = "ami-0c2e61fdcb5495691"
   instance_type = var.instance_type
   tags = {
     Name = "TerraformDemo"
