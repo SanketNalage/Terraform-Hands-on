@@ -1,0 +1,1 @@
+# Resource-9: Create Elastic IP
