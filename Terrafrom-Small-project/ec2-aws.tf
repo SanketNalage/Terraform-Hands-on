@@ -1,1 +1,1 @@
-# Resource-8: Create EC2 Instance
+#Create EC2 Instance
