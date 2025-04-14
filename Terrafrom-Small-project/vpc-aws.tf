@@ -1,17 +1,17 @@
 # Resources Block
 #Create VPC
 resource "aws_vpc" "vpc-dev" {
-    cidr_block = "10.0.0.0/16"
-    tags = {
-      "Name" = "vpc-dev"
-    }
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    "Name" = "vpc-dev"
+  }
 }
 
 #Create Subnets
 resource "aws_subnet" "vpc-dev-public-subnet-1" {
-  vpc_id = aws_vpc.vpc-dev
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "eu-north-1a"
+  vpc_id                  = aws_vpc.vpc-dev.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "eu-north-1a"
   map_public_ip_on_launch = true
   tags = {
     Name = "vpc-dev-pubic-subnet-1"
@@ -29,20 +29,20 @@ resource "aws_route_table" "vpc-dev-public-route-table" {
 
 #Create Route in Route Table for Internet Access
 resource "aws_route" "vpc-dev-public-route" {
-  route_table_id = aws_route_table.vpc-dev-public-route-table.id
+  route_table_id         = aws_route_table.vpc-dev-public-route-table.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id = aws_internet_gateway.vpc-dev-igw.id
+  gateway_id             = aws_internet_gateway.vpc-dev-igw.id
 }
 
 #Associate the Route Table with the Subnet
 resource "aws_route_table_association" "vpc-dev-public-route-table-associate" {
   route_table_id = aws_route_table.vpc-dev-public-route-table.id
-  subnet_id = aws_subnet.vpc-dev-public-subnet-1.id
+  subnet_id      = aws_subnet.vpc-dev-public-subnet-1.id
 }
 
 #Create Security Group
 resource "aws_security_group" "dev-vpc-sg" {
-  name = "dev-vpc-default-sg"
+  name        = "dev-vpc-default-sg"
   description = "Dev VPC Default Security Group"
   vpc_id      = aws_vpc.vpc-dev.id
 
