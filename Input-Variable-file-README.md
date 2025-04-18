@@ -304,11 +304,11 @@ terraform console
 
 # Test substr function
 Template: substr(string, offset, length)
-substr("stack simplify", 1, 4)
-substr("stack simplify", 0, 6)
-substr("stack simplify", 0, 1)
-substr("stack simplify", 0, 0)
-substr("stack simplify", 0, 10)
+substr("Sanket Nalage", 1, 4)
+substr("Sanket Nalage", 0, 6)
+substr("Sanket Nalage", 0, 1)
+substr("Sanket Nalage", 0, 0)
+substr("Sanket Nalage sacfakas ", 0, 10)
 ```
 
 ### Step-09-03: Implement Validation Rule for ec2_ami_id variable
