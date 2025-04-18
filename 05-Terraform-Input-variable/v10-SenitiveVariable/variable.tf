@@ -1,4 +1,4 @@
-# We are going to us the sensitive data.
+# When using environment variables to set sensitive values, keep in mind that those values will be in your environment and command-line history
 # Input Variables
 variable "aws_region" {
   description = "Region in which AWS resources to be created"
