@@ -24,7 +24,8 @@
 
 
 ## Step-04: Resource: Create Resource: Create EC2 Instance
-```
+
+
 # Initialize Terraform
 terraform init
 
@@ -50,7 +51,7 @@ terraform apply -auto-approve
 Observation: 
 1) Creates terraform.tfstate file in local working directory
 2) Creates actual resource in AWS Cloud
-```
+
 - **Important Note:** Here we have seen example for **Create Resource**
 
 
@@ -92,14 +93,13 @@ Observation: "Apply complete! Resources: 0 added, 1 changed, 0 destroyed."
 
 ## Step-08: Resource: Destroy and Re-create Resources: Update Availability Zone
 - This will destroy the EC2 Instance in 1 AZ and re-creates in other AZ
-```
+
 # Before
   availability_zone = "us-east-1a"
 
 # After
   availability_zone = "us-east-1b"  
-```
-```
+
 # Review the terraform plan
 terraform plan 
 Observation: 
@@ -111,11 +111,11 @@ Observation:
 # Create / Update Resources 
 terraform apply -auto-approve
 Observation: "Apply complete! Resources: 1 added, 0 changed, 1 destroyed."
-```
+
 
 
 ## Step-09: Resource: Destroy Resource
-```
+
 # Destroy Resource
 terraform destroy 
 Observation: 
@@ -123,21 +123,21 @@ Observation:
 2) # aws_instance.my-ec2-vm will be destroyed
 3) Plan: 0 to add, 0 to change, 1 to destroy
 4) Destroy complete! Resources: 1 destroyed
-```
+
 
 ## Step-10: Understand Desired and Current States (High-Level Only)
 - **Desired State:** Local Terraform Manifest (All *.tf files)
 - **Current State:**  Real Resources present in your cloud
 
 ## Step-11: Clean-Up
-```
+
 # Destroy Resource
 terraform destroy -auto-approve 
 
 # Remove Terraform Files
 rm -rf .terraform*
 rm -rf terraform.tfstate*
-```
+
 
 ## References
 - [Terraform State](https://www.terraform.io/docs/language/state/index.html)
