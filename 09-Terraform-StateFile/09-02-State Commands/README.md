@@ -358,16 +358,6 @@ terraform destroy -auto-approve
 rm -rf .terraform*
 rm -rf v1plan.out
 
-# Kalyan - Not to forgot to change these things after Recording
-# Ensure below two lines are in commented state in c4-ec2-instance.tf
-1) This is required for students demo for this entire section to implement in a step by step manner from beginning
-    #"demotag" = "refreshtest"  # Enable during Step-04-05
-    # "target" = "Target-Test-1" # Enable during step-08
-2) Rename the local name for EC2 Instance from "my-ec2-vm-new" to "my-ec2-vm"
-Changed during step 05-02: aws_insta09-Terraform-StateFile/09-01-Remote State Storage & Locking/ami-datasource.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/apache-install.sh 09-Terraform-StateFile/09-01-Remote State Storage & Locking/ec2-creation.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locki09-Terraform-StateFile/09-01-Remote State Storage & Locking/ami-datasource.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/apache-install.sh 09-Terraform-StateFile/09-01-Remote State Storage & Locking/ec2-creation.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/output.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/sgroup.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/variable.tf 09-Terraform-StateFile/09-01-Remote State Storage & Locking/version.tf
-3.3: New EC2 Instance resource in c4-ec2-instance.tf
-```
-
 ## References
 - [Terraform State Command](https://www.terraform.io/docs/cli/commands/state/index.html)
 - [Terraform Inspect State](https://www.terraform.io/docs/cli/state/inspect.html)
