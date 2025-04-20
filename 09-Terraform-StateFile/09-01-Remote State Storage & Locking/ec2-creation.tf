@@ -1,6 +1,6 @@
 # Create EC2 Instance
 resource "aws_instance" "my-ec2-vm" {
-  ami                    = data.aws_ami.amzlinux
+  ami                    = data.aws_ami.amzlinux.id
   instance_type          = var.ec2_type_instance
   key_name               = "terraform-pair"
   user_data = file("apache-install.sh")

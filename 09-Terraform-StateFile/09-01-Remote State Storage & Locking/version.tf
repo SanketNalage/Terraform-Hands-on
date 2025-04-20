@@ -8,7 +8,10 @@ terraform {
   backend "s3" {
     bucket = "terraform-demo-sanket"
     key = "dev/terraform.tfstate"
-    region = var.aws_region
+    region = "eu-north-1"
+
+    # For State Locking
+    dynamodb_table = "terraform-dev-state-table"
   }
 }
 
