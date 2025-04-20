@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "terraform-demo-sanket"
-    key = "dev/terraform.tfstate"
+    key = "statecommands/terraform.tfstate"
     region = "eu-north-1"
 
     # For State Locking
