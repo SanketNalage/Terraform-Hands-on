@@ -5,14 +5,14 @@ terraform {
       version = "5.94.1"
     }
   }
-  backend "s3" {
-    bucket = "terraform-demo-sanket"
-    key = "statecommands/terraform.tfstate"
-    region = "eu-north-1"
+  # backend "s3" {
+  #   bucket = "terraform-demo-sanket"
+  #   key = "statecommands/terraform.tfstate"
+  #   region = "eu-north-1"
 
-    # For State Locking
-    dynamodb_table = "terraform-dev-state-table"
-  }
+  #   # For State Locking
+  #   dynamodb_table = "terraform-dev-state-table"
+  # }
 }
 
 provider "aws" {
