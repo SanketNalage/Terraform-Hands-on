@@ -45,7 +45,7 @@
     host = self.public_ip # Understand what is "self"
     user = "ec2-user"
     password = ""
-    private_key = file("private-key/terraform-key.pem")
+    private_key = file("private-key/terraform-pair.pem")
   }  
 ```
 
