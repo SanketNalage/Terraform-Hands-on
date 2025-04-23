@@ -10,27 +10,36 @@ resource "aws_instance" "my-ec2-vm" {
   tags = {
     "Name" = "vm-${terraform.workspace}-0"
   }
- # Connection Block for Provisioners to connect to EC2 Instance
   connection {
     type = "ssh"
     host = self.public_ip # Understand what is "self"
     user = "ec2-user"
     password = ""
-    private_key = file("private-key/terraform-key.pem")
+    private_key = file("private-key/terraform-pair.pem")
   }  
 
- # Copies the file-copy.html file to /tmp/file-copy.html
+  # Copies the file-copy.html file to /tmp/file-copy.html
   provisioner "file" {
     source      = "apps/file-copy.html"
     destination = "/tmp/file-copy.html"
   }
 
-# Copies the file to Apache Webserver /var/www/html directory
-  provisioner "remote-exec" {
-    inline = [
-      "sleep 120",  # Will sleep for 120 seconds to ensure Apache webserver is provisioned using user_data
-      "sudo cp /tmp/file-copy.html /var/www/html"
-    ]
+  # Copies the string in content into /tmp/file.log
+  provisioner "file" {
+    content     = "ami used: ${self.ami}" # Understand what is "self"
+    destination = "/tmp/file.log"
+  }
+
+  # Copies the app1 folder to /tmp - FOLDER COPY
+  provisioner "file" {
+    source      = "apps/app1"
+    destination = "/tmp"
+  }
+
+  # Copies all files and folders in apps/app2 to /tmp - CONTENTS of FOLDER WILL BE COPIED
+  provisioner "file" {
+    source      = "apps/app2/" # when "/" at the end is added - CONTENTS of FOLDER WILL BE COPIED
+    destination = "/tmp"
   }
 }
 
