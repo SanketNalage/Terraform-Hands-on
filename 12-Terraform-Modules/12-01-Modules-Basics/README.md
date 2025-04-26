@@ -19,10 +19,10 @@
   - Module Source (Mandatory): To start with we will use Terraform Registry
   - Module Version (Optional): Recommended to use module version
 - Create a simple EC2 Instance module
-  - c1-versions.tf: standard
-  - c2-variables.tf: standard
-  - c3-ami-datasource.tf: standard
-  - c4-ec2instance-module.tf: We will focus on building this template  
+  - versions.tf: standard
+  - variables.tf: standard
+  - ami-datasource.tf: standard
+  - ec2instance-module.tf: We will focus on building this template  
 ```t
 # AWS EC2 Instance Module
 
@@ -34,8 +34,8 @@ module "ec2_cluster" {
   instance_count         = 2
 
   ami                    = data.aws_ami.amzlinux.id
-  instance_type          = "t2.micro"
-  key_name               = "terraform-key"
+  instance_type          = "t3.micro"
+  key_name               = "terraform-pair"
   monitoring             = true
   vpc_security_group_ids = ["sg-08b25c5a5bf489ffa"]  # Get Default VPC Security Group ID and replace
   subnet_id              = "subnet-4ee95470" # Get one public subnet id from default vpc and replace
