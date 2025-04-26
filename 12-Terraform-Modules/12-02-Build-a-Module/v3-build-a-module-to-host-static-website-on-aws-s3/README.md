@@ -27,20 +27,20 @@ description: Create Terraform Modules locally
 - We are going to host a static website with AWS S3 using AWS Management console
 ### Step-02-01: Create AWS S3 Bucket
 - Go to AWS Services -> S3 -> Create Bucket 
-- **Bucket Name:** sanket-static-bucket (Note: Bucket name should be unique across AWS)
-- **Region:** eu-north-1
+- **Bucket Name:** mybucket-1045 (Note: Bucket name should be unique across AWS)
+- **Region:** US.East (N.Virginia)
 - Rest all leave to defaults
 - Click on **Create Bucket**
 
 ### Step-02-02: Enable Static website hosting
-- Go to AWS Services -> S3 -> Buckets -> sanket-static-bucket -> Properties Tab -> At the end
+- Go to AWS Services -> S3 -> Buckets -> mybucket-1045 -> Properties Tab -> At the end
 - Edit to enable **Static website hosting**
 - **Static website hosting:** enable
 - **Index document:** index.html
 - Click on **Save Changes**
 
 ### Step-02-03: Remove Block public access (bucket settings)
-- Go to AWS Services -> S3 -> Buckets -> sanket-static-bucket -> Permissions Tab 
+- Go to AWS Services -> S3 -> Buckets -> mybucket-1045 -> Permissions Tab 
 - Edit **Block public access (bucket settings)** 
 - Uncheck **Block all public access**
 - Click on **Save Changes**
@@ -61,13 +61,13 @@ description: Create Terraform Modules locally
               "s3:GetObject"
           ],
           "Resource": [
-              "arn:aws:s3:::sanket-static-bucket/*"
+              "arn:aws:s3:::mybucket-1045/*"
           ]
       }
   ]
 }
 ```
-- Go to AWS Services -> S3 -> Buckets -> sanket-static-bucket -> Permissions Tab 
+- Go to AWS Services -> S3 -> Buckets -> mybucket-1045 -> Permissions Tab 
 - Edit -> **Bucket policy** -> Copy paste the policy above with your bucket name
 - Click on **Save Changes**
 
@@ -83,7 +83,7 @@ description: Create Terraform Modules locally
 http://example-bucket.s3-website.Region.amazonaws.com/
 
 # Replace Values (Bucket Name, Region)
-http://sanket-static-bucket.s3-website.eu-north-1.amazonaws.com/
+http://mybucket-1045.s3-website.us-east-1.amazonaws.com/
 ```
 
 ### Step-02-07: Conclusion
@@ -129,7 +129,7 @@ terraform apply -auto-approve
 http://example-bucket.s3-website.Region.amazonaws.com/
 
 # Replace Values (Bucket Name, Region)
-http://sanket-static-bucket-02.s3-website.us-east-1.amazonaws.com/
+http://mybucket-1046.s3-website.us-east-1.amazonaws.com/
 ```
 ### Step-03-04: Destroy and Clean-Up
 ```t
