@@ -131,7 +131,7 @@ Observation:
 1) Should see message |Success! Terraform has obtained and saved an API token.|
 2) Verify Terraform credentials file
 cat /Users/<YOUR_USER>/.terraform.d/credentials.tfrc.json
-cat /Users/kdaida/.terraform.d/credentials.tfrc.json
+cat /Users/jay/.terraform.d/credentials.tfrc.json
 Additional Reference:
 https://www.terraform.io/docs/cli/config/config-file.html#credentials-1
 https://www.terraform.io/docs/cloud/registry/using.html#configuration
@@ -178,15 +178,7 @@ rm -rf .terraform*
 rm -rf terraform.tfstate*
 ```
 
-## Step-09: Create a configuration that uses the Private Registry module using Terraform Cloud & Github
-### Assignment
-1. Create Github Repository
-2. Check-In files from `terraform-manifests` folder in `11-02` section
-3. Create a new Workspace in Terraform Cloud to connect with Github Repository
-4. Execute `Queue Plan` to apply the changes and test
-
-
-## Step-10: VCS Providers & Terraform Cloud
+## Step-09: VCS Providers & Terraform Cloud
 - [Configuration-Free GitHub Usage](https://www.terraform.io/docs/cloud/vcs/github-app.html)
 - [Configuring GitHub.com Access (OAuth)](https://www.terraform.io/docs/cloud/vcs/github.html)
 - [Configuring GitHub Enterprise Access](https://www.terraform.io/docs/cloud/vcs/github-enterprise.html)
