@@ -9,6 +9,6 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  profile = "default"
+  # profile = "default"
   region  = var.aws_region # This is correct for region specification
 }
